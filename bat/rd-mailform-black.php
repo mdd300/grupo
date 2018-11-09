@@ -39,7 +39,7 @@ try {
             array("<!-- #{Subject} -->", "<!-- #{SiteName} -->"), array($subject, $_SERVER['SERVER_NAME']), $template);
 
     $mail = new PHPMailer();
-    
+
 
 
 
@@ -55,7 +55,6 @@ try {
      */
 
 
-    $mail->addAddress('victor.za.oshiro5@gmail.com');
 
 
     $mail->isSMTP();
@@ -68,7 +67,9 @@ try {
     $mail->Port = 587;
     $mail->Username = 'web@gruporedes.global';
     $mail->Password = 'yVPdPbVK';
-    $mail->setFrom = 'web@gruporedes.global';  
+    $mail->setFrom = 'web@gruporedes.global';
+    
+    $mail->addAddress('victor.za.oshiro5@gmail.com');
     $mail->CharSet = 'utf-8';
     $mail->Subject = $subject;
     $mail->MsgHTML($template);
