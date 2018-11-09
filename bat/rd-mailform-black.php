@@ -76,7 +76,7 @@ try {
 
 
 
-    ader("Location: gruporedes.global"); /* Redirect browser */
+    header("Location: gruporedes.global"); /* Redirect browser */
 exit();
 } catch (phpmailerException $e) {
     die('MF254');
