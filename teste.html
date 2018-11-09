@@ -1,0 +1,188 @@
+<!DOCTYPE html >
+<html class="wide wow-animation smoothscroll" lang="pt-br">
+  <head>
+    <!-- Site Title -->
+    <title>Grupo Redes</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Libre+Franklin:200,300,500,600,300italic"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="rangeslider.css"/>
+    <link rel="stylesheet" href="css/custom.css"/>
+
+
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/></a></div>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <style>
+    *,
+      *:before,
+      *:after {
+          -webkit-box-sizing: border-box;
+             -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+      }
+      html {
+          color: #404040;
+          font-family: Helvetica, arial, sans-serif;
+      }
+      body {
+          padding: 50px 20px;
+          margin: 0 auto;
+          max-width: 800px;
+      }
+      output {
+          display: block;
+          font-size: 30px;
+          font-weight: bold;
+          text-align: center;
+          margin: 30px 0;
+          width: 100%;
+      }
+      .u-left {
+          float: left;
+      }
+      .u-cf:before,
+      .u-cf:after {
+          content: "";
+          display: table;
+      }
+      .u-cf:after {
+          clear: both;
+      }
+      .u-text-left {
+          text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+<section class="section-lg">
+    <div class="shell-fluid">
+      <div class="range range-condensed">
+        <div class="cell-sm-6">
+
+          <div>
+            <h2>Comparison to native element</h2>
+            <input type="range" min="0" max="10" data-rangeslider>
+            <br>
+            <br>
+            <input type="range" min="0" max="10" data-rangeslider>
+            <output></output>
+        </div>
+
+  <br>
+  <br>
+
+  <div>
+      <h2>Negative attributes</h2>
+      <div>
+          <input type="range" min="-10" max="0" data-rangeslider>
+          <output></output>
+      </div>
+      <div>
+          <input type="range" min="-20" max="20" value="-10" data-rangeslider>
+          <output></output>
+      </div>
+  </div>
+
+  <br>
+  <br>
+
+  <div>
+      <h2>Floating point boundaries</h2>
+      <div>
+          <input type="range" min="1" max="10" step="1" value="1" data-rangeslider>
+          <output></output>
+      </div>
+      <div>
+          <input type="range" min="10" max="100" step="10" value="10" data-rangeslider>
+          <output></output>
+      </div>
+      <div>
+          <input type="range" min="100" max="1000" step="100" value="100" data-rangeslider>
+          <output></output>
+      </div>
+      <output name="result"></output>
+  </div>
+
+  <br>
+  <br>
+
+  <div>
+      <h2><code>value="0"</code></h2>
+      <input type="range" value="0" data-rangeslider>
+      <output></output>
+  </div>
+
+  <br>
+  <br>
+
+
+
+</div>
+</div>
+</div>
+</section>
+
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="rangeslider.js"></script>
+
+    <script>
+    $(function() {
+        var $document = $(document);
+        var selector = '[data-rangeslider]';
+        var $element = $(selector);
+        // For ie8 support
+        var textContent = ('textContent' in document) ? 'textContent' : 'innerText';
+        // Example functionality to demonstrate a value feedback
+        function valueOutput(element) {
+            var value = element.value;
+            var output = element.parentNode.getElementsByTagName('output')[0] || element.parentNode.parentNode.getElementsByTagName('output')[0];
+            output[textContent] = value;
+        }
+        $document.on('input', 'input[type="range"], ' + selector, function(e) {
+            valueOutput(e.target);
+
+            $('.section-lg').each(function(){
+                  var totalPoints = 0;
+                  $(this).find('input').each(function(i,n){
+                    totalPoints += parseInt($(n).val(),10);
+                  });
+                  alert(totalPoints);
+                });
+
+        });
+
+        // Basic rangeslider initialization
+        $element.rangeslider({
+            // Deactivate the feature detection
+            polyfill: false,
+            // Callback function
+            onInit: function() {
+                valueOutput(this.$element[0]);
+            },
+            // Callback function
+            onSlide: function(position, value) {
+                console.log('onSlide');
+                console.log('position: ' + position, 'value: ' + value);
+            },
+            // Callback function
+            onSlideEnd: function(position, value) {
+                console.log('onSlideEnd');
+                console.log('position: ' + position, 'value: ' + value);
+            }
+        });
+    });
+
+
+    </script>
+
+  </body>
+</html>
