@@ -39,7 +39,7 @@ try {
             array("<!-- #{Subject} -->", "<!-- #{SiteName} -->"), array($subject, $_SERVER['SERVER_NAME']), $template);
 
     $mail = new PHPMailer();
-    $mail->From = $_POST['email'];
+    
 
 
 
@@ -68,7 +68,7 @@ try {
     $mail->Port = 587;
     $mail->Username = 'web@gruporedes.global';
     $mail->Password = 'yVPdPbVK';
-
+    $mail->setFrom = 'web@gruporedes.global';  
     $mail->CharSet = 'utf-8';
     $mail->Subject = $subject;
     $mail->MsgHTML($template);
@@ -76,7 +76,7 @@ try {
 
 
 
-//    echo '<script>window.location = "http://gruporedes.global/";</script>';
+    echo '<script>window.location = "http://gruporedes.global/";</script>';
 } catch (phpmailerException $e) {
     die('MF254');
 } catch (Exception $e) {
