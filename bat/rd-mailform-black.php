@@ -43,11 +43,6 @@ try {
 
 
 
-    if (isset($_POST['name'])) {
-        $mail->FromName = $_POST['nome'];
-    } else {
-        $mail->FromName = "Contato Black Friday";
-    }
     /*
       foreach ($addresses[0] as $key => $value) {
       $mail->addAddress($value[0]);
@@ -67,8 +62,9 @@ try {
     $mail->Port = 587;
     $mail->Username = 'web@gruporedes.global';
     $mail->Password = 'yVPdPbVK';
-    $mail->setFrom = 'web@gruporedes.global';
     
+    $mail->setFrom = 'web@gruporedes.global';
+    $mail->FromName = 'Contato';
     $mail->addAddress('victor.za.oshiro5@gmail.com');
     $mail->CharSet = 'utf-8';
     $mail->Subject = $subject;
