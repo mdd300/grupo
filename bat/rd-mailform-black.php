@@ -58,12 +58,12 @@ try {
     $mail->SMTPAuth = true;
 
     $mail->Host = 'mail.gruporedes.global';
-    $mail->SMTPSecure = "tls";
+    $mail->SMTPSecure = "ssl";
     $mail->Port = 587;
-    $mail->Username = 'web@gruporedes.global';
-    $mail->Password = 'yVPdPbVK';
+    $mail->Username = 'victor.za.oshiro5@gmail.com';
+    $mail->Password = '89720228';
 
-    $mail->setFrom = 'web@gruporedes.global';
+    $mail->setFrom = 'victor.za.oshiro5@gmail.com';
     $mail->FromName = 'Contato';
     $mail->addAddress('victor.za.oshiro5@gmail.com');
     $mail->CharSet = 'utf-8';
