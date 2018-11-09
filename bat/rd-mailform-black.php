@@ -57,7 +57,7 @@ try {
     $mail->Debugoutput = 'html';
     $mail->SMTPAuth = true;
 
-    $mail->Host = 'mail.gruporedes.global';
+    $mail->Host = 'stmp.gmail.com';
     $mail->SMTPSecure = "ssl";
     $mail->Port = 587;
     $mail->Username = 'victor.za.oshiro5@gmail.com';
