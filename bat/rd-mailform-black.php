@@ -59,7 +59,6 @@ try {
 
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPSecure = "ssl";
-    $mail->Port = 587;
     $mail->Username = 'victor.za.oshiro5@gmail.com';
     $mail->Password = '89720228';
 
