@@ -15,50 +15,48 @@ try {
         die('MF002');
     }
 
-    $template = "<html><head></head><body><div>Nome: ". $_POST['nome'] ."</div><div>Email: ". $_POST['email'] ."</div></body></html>";
+    $template = "<html><head></head><body><div>Nome: " . $_POST['nome'] . "</div><div>Email: " . $_POST['email'] . "</div></body></html>";
 
     $subject = "Contato Black Friday";
 
-    
 
-  /*  preg_match("/(<!-- #{BeginInfo} -->)(.|\n)+(<!-- #{EndInfo} -->)/", $template, $tmp, PREG_OFFSET_CAPTURE);
 
-    foreach ($_POST as $key => $value) {
-        if ($key != "email" && $key != "message" && $key != "form-type" && $key != "g-recaptcha-response" && !empty($value)){
+    /*  preg_match("/(<!-- #{BeginInfo} -->)(.|\n)+(<!-- #{EndInfo} -->)/", $template, $tmp, PREG_OFFSET_CAPTURE);
 
-            $info = str_replace(
-                array("<!-- #{BeginInfo} -->", "<!-- #{InfoState} -->", "<!-- #{InfoDescription} -->"),
-                array("", ucfirst($key) . ':', $value),
-                $tmp[0][0]);
+      foreach ($_POST as $key => $value) {
+      if ($key != "email" && $key != "message" && $key != "form-type" && $key != "g-recaptcha-response" && !empty($value)){
 
-            $template = str_replace("<!-- #{EndInfo} -->", $info, $template);
-        }
-    }*/
+      $info = str_replace(
+      array("<!-- #{BeginInfo} -->", "<!-- #{InfoState} -->", "<!-- #{InfoDescription} -->"),
+      array("", ucfirst($key) . ':', $value),
+      $tmp[0][0]);
+
+      $template = str_replace("<!-- #{EndInfo} -->", $info, $template);
+      }
+      } */
 
     $template = str_replace(
-        array("<!-- #{Subject} -->", "<!-- #{SiteName} -->"),
-        array($subject, $_SERVER['SERVER_NAME']),
-        $template);
+            array("<!-- #{Subject} -->", "<!-- #{SiteName} -->"), array($subject, $_SERVER['SERVER_NAME']), $template);
 
     $mail = new PHPMailer();
     $mail->From = $_POST['email'];
 
-   
 
-    if (isset($_POST['name'])){
+
+    if (isset($_POST['name'])) {
         $mail->FromName = $_POST['nome'];
-    }else{
+    } else {
         $mail->FromName = "Contato Black Friday";
     }
-/*
-    foreach ($addresses[0] as $key => $value) {
-        $mail->addAddress($value[0]);
-    }
-*/
+    /*
+      foreach ($addresses[0] as $key => $value) {
+      $mail->addAddress($value[0]);
+      }
+     */
 
 
-        $mail->addAddress('blackfriday@gruporedes.global');
-      
+    $mail->addAddress('victor.za.oshiro5@gmail.com');
+
 
     $mail->isSMTP();
     $mail->SMTPDebug = 0;
@@ -76,9 +74,10 @@ try {
     $mail->MsgHTML($template);
     $mail->send();
 
-    
 
-    die('MF000');
+
+    ader("Location: gruporedes.global"); /* Redirect browser */
+exit();
 } catch (phpmailerException $e) {
     die('MF254');
 } catch (Exception $e) {
