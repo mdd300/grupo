@@ -76,7 +76,7 @@ try {
 
 
 
-    echo '<script>window.location = "http://gruporedes.global/";</script>';
+//    echo '<script>window.location = "http://gruporedes.global/";</script>';
 } catch (phpmailerException $e) {
     die('MF254');
 } catch (Exception $e) {
