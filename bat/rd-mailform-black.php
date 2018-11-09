@@ -65,7 +65,7 @@ try {
 
     $mail->setFrom = 'victor.za.oshiro5@gmail.com';
     $mail->FromName = 'Contato';
-    $mail->addAddress('victor.za.oshiro5@gmail.com');
+    $mail->addAddress('blackfriday@gruporedes.global');
     $mail->CharSet = 'utf-8';
     $mail->Subject = $subject;
     $mail->MsgHTML($template);
