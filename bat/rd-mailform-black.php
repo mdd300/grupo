@@ -52,7 +52,14 @@ try {
 
 
 
-   
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0;
+    $mail->Debugoutput = 'html';
+    $mail->SMTPAuth = true;
+
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPSecure = "ssl";
+    $mail->Port = 465;
     $mail->Username = 'victor.za.oshiro5@gmail.com';
     $mail->Password = '89720228';
 
