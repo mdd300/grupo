@@ -62,18 +62,23 @@ try {
     $mail->Port = 587;
     $mail->Username = 'web@gruporedes.global';
     $mail->Password = 'yVPdPbVK';
-    
+
     $mail->setFrom = 'web@gruporedes.global';
     $mail->FromName = 'Contato';
     $mail->addAddress('victor.za.oshiro5@gmail.com');
     $mail->CharSet = 'utf-8';
     $mail->Subject = $subject;
     $mail->MsgHTML($template);
-    $mail->send();
+    if (!$mail->send()) {
+        echo 'Não foi possível enviar a mensagem.<br>';
+        echo 'Erro: ' . $mail->ErrorInfo;
+    } else {
+         echo '<script>window.location = "http://gruporedes.global/";</script>';
+    }
 
 //
 //
-//    echo '<script>window.location = "http://gruporedes.global/";</script>';
+//   
 } catch (phpmailerException $e) {
     die('MF254');
 } catch (Exception $e) {
