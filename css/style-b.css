@@ -1,12 +1,7 @@
 @font-face {
   font-family: 'frabk';
-  src:  url('fonts/font-black/FRABK.TTF')  format('truetype'),
-      url('fonts/font-black/FRABKIT.TTF')  format('truetype'),
-      url('fonts/font-black/FRADM.TTF')  format('truetype'),
-       url('fonts/font-black/FRADMCN.TTF')  format('truetype'),
-      url('fonts/font-black/FRADMIT.TTF')  format('truetype'),
-      url('fonts/font-black/FRAHV.TTF')  format('truetype'),
-      url('fonts/font-black/FRAHVIT.TTF')  format('truetype');
+  src:  
+      url('fonts/font-black/FRABKIT.TTF')  format('truetype');
 }
 .img-1{
     background-repeat: no-repeat;
@@ -36,7 +31,6 @@
     height: 50px;
     border-radius: 10px;
     padding-left: 20px;
-    font-family: frabk
 }
 .input-cad::placeholder{
     color: white;
