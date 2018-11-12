@@ -6,7 +6,7 @@
        url('fonts/font-black/FRADMCN.TTF')  format('truetype'),
       url('fonts/font-black/FRADMIT.TTF')  format('truetype'),
       url('fonts/font-black/FRAHV.TTF')  format('truetype'),
-      url('fonts/font-black/FRAHVIT.TTF')  format('truetype'),
+      url('fonts/font-black/FRAHVIT.TTF')  format('truetype');
 }
 .img-1{
     background-repeat: no-repeat;
@@ -36,11 +36,11 @@
     height: 50px;
     border-radius: 10px;
     padding-left: 20px;
-    font-family: "frabk"
+    font-family: frabk
 }
 .input-cad::placeholder{
     color: white;
-    font-family: "frabk"
+    font-family: frabk
 }
 .form-content{
     color:white; 
