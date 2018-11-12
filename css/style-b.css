@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'frabk';
+  src:  url('fonts/font-black/FRABK.TTF')  format('truetype'); /* Safari, Android, iOS */
+}
 .img-1{
     background-repeat: no-repeat;
     background-position: center; 
@@ -24,11 +28,13 @@
     border: 0px solid;
     width: 90%;
     height: 50px;
-    border-radius: 10px
+    border-radius: 10px;
+    padding-left: 20px;
+    font-family: "frabk"
 }
 .input-cad::placeholder{
     color: white;
-    padding-left: 20px 
+    font-family: "frabk"
 }
 .form-content{
     color:white; 
