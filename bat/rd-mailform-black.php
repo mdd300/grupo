@@ -15,7 +15,7 @@ try {
         die('MF002');
     }
 
-    $template = "<html><head></head><body><div>Nome: " . $_POST['nome'] . "</div><div>Email: " . $_POST['email'] . "</div></body></html>";
+    $template = "<html><head></head><body><div>Nome: " . $_POST['nome'] . "</div><div>Email: " . $_POST['email'] . "</div><div>Telefone: " . $_POST['telefone'] . "</div></body></html>";
 
     $subject = "Contato Black Friday";
 
@@ -70,7 +70,7 @@ try {
     $mail->Subject = $subject;
     $mail->MsgHTML($template);
     if (!$mail->send()) {
-        echo 'Não foi possível enviar a mensagem.<br>';
+        echo 'Nï¿½o foi possï¿½vel enviar a mensagem.<br>';
         echo 'Erro: ' . $mail->ErrorInfo;
     } else {
          echo '<script>window.location = "http://gruporedes.global/";</script>';
